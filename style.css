@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+
+body {
+    background-color: #c2c2d6;
+    font-size: 16px;
+}
+.calc-box {
+    margin: 15em auto;
+    width: 20em;
+    height: 25em;
+    background-color: black;
+    padding: 0 6px;
+}
+.calc-results {
+    width: 20em;
+    height: 4em;
+}
+.calc-1st__row {
+    display: flex;
+    flex-direction: row;
+}
+#calc-ac {
+    width: 6.65em;
+    height: 2.7em;
+    background-color: rgb(172, 57, 57)
+}
+.calc-operations {
+    width: 3.3em;
+    height: 2.7em;
+    background-color: rgb(102, 102, 102);
+}
+.calc-num, #calc-num__decimal {
+    width: 3.3em;
+    height: 2.7em;
+    background-color: #4d4d4d;
+}
+#calc-num__0 {
+    width: 6.66em;
+    height: 2.7em;
+    color: #fff;
+    background-color: #4d4d4d;
+}
+#calc-equal {
+    position: relative;
+    top: 1.39em;
+    width: 3.3em;
+    height: 5.5em;
+    background-color: rgb(0, 68, 102);
+}
+.calc-row-last {
+    margin-top: -2.1em;
+}
+#calc-num__0, #calc-num__decimal {
+    position: relative;
+    top: -1.4em;
+}
+button {
+    color: #fff;
+    border: none;
+    height: 66.66px;
+    position: relative;
+    font-size: 1.5em;
+    margin: 0.5px -1.3px;
+    font-family: 'Share Tech', sans-serif;
+    font-weight: 900;
+}
+button:hover {
+    color: black;
+    border: 1px solid rgb(187, 187, 187);
+}
