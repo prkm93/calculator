@@ -1,42 +1,53 @@
 const calculationSection = document.querySelector('.calculation');
 const outputResults = document.querySelector('.output');
 
-const ac = document.querySelector('#calc-ac');
-const acValue = document.querySelector('#calc-ac').getAttribute('value');
-
-const operators = document.querySelectorAll('.calc-operations');
-const numbers = document.querySelectorAll(".calc-num");
 
 const buttonValues = document.querySelectorAll('button');
 
+let currentScreenValue = '';
+const numberArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+const operators = ['+', '-', '*', '/'];
+
+outputResults.innerHTML = 0;
+
 buttonValues.forEach(el => {
     el.addEventListener('click', function(e) {
-        const value = e.target.value;
+        
+        let value = e.target.value;
+        if (operators.includes(outputResults.innerHTML)) {
 
-        if (value === "+") {
-            printHistoryCalculation(value);
-            
+        }
+
+        if ( operators.includes(value)) {
+
+            currentScreenValue += value;
+            calculationSection.innerHTML += value;
+            outputResults.innerHTML = value;
+
         } else if (value === '=') {
+            
+            calculationSection.innerHTML += '=' + eval(currentScreenValue);
+            outputResults.innerHTML = eval(currentScreenValue);
 
         } else if (value === 'AC') {
-            calculationSection.innerHTML = '';
-            outputResults.innerHTML = '0';
+
+            currentScreenValue = '';
+            calculationSection.innerHTML = currentScreenValue;
+            outputResults.innerHTML = 0;
+
+        } else {
+
+            currentScreenValue += value;
+            calculationSection.innerHTML += value;
+            outputResults.innerHTML += value;
+
+            let currentVal = outputResults.innerHTML;
+
+            if (currentVal.split("").filter(el => operators.includes(el)).length || currentVal[0] === "0") {
+                var currentOutput = currentVal.substring(1, currentVal.length);
+                outputResults.innerHTML = currentOutput;
+            }
+
         }
     })
 })
-
-const formattedNumber = (num) => {
-    return Number(num).toLocaleString('en');
-}
- 
-const reverseNumberFormat = (num) => {
-    return Number(num.replace(/,/g, '')); 
-}
-
-const printHistoryCalculation = (num) => { 
-
-    calculationSection.innerHTML += num;
-    outputResults.innerHTML += num;
-}
-
-// printHistoryCalculation("1927192712");
