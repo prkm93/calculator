@@ -14,18 +14,16 @@ buttonValues.forEach(el => {
     el.addEventListener('click', function(e) {
         
         let value = e.target.value;
-        if (operators.includes(outputResults.innerHTML)) {
 
-        }
-
-        if ( operators.includes(value)) {
+        // perform any operation , +,-, *, /
+        if (operators.includes(value)) {
 
             currentScreenValue += value;
             calculationSection.innerHTML += value;
             outputResults.innerHTML = value;
 
         } else if (value === '=') {
-            
+
             calculationSection.innerHTML += '=' + eval(currentScreenValue);
             outputResults.innerHTML = eval(currentScreenValue);
 
@@ -37,12 +35,14 @@ buttonValues.forEach(el => {
 
         } else {
 
+            // keep appending numbers
             currentScreenValue += value;
             calculationSection.innerHTML += value;
             outputResults.innerHTML += value;
 
             let currentVal = outputResults.innerHTML;
 
+            // if any operator is clicked, then it should only output next number to be operated with in output section or remove 0 when AC is clicked.
             if (currentVal.split("").filter(el => operators.includes(el)).length || currentVal[0] === "0") {
                 var currentOutput = currentVal.substring(1, currentVal.length);
                 outputResults.innerHTML = currentOutput;
